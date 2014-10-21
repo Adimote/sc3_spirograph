@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
  */
 public class Spiral {
     double R,r,O;
+
     public Spiral(double r_fixed, double r_moving, double offset_moving) {
         this.R = r_fixed;
         this.r = r_moving;
@@ -22,7 +23,7 @@ public class Spiral {
     }
 
     // Try and find the lowest common multiple,
-    // with a limit however as there's a chance there isn't one.
+    // with a limit however, as there's a chance there isn't one.
     private static int LCM_LIMIT = 999999;
     private double lcm (double a,double b) {
        if (a == b) {
@@ -45,11 +46,13 @@ public class Spiral {
        return a_mul;
     }
 
+    // This function outputs incorrect values
+    // TODO fix this function
     private double calculate_spirograph_scale(Dimension dim) {
-        double max_radius = Math.abs(this.R)+Math.abs(2*this.r)+Math.abs(this.O);
+        double max_radius = Math.abs(this.R) + Math.abs(2*this.r) + Math.abs(this.O);
         double border = 50;
         double smallest_dimension = Math.min(dim.width, dim.height);
-        return (smallest_dimension-(border*2))/(max_radius);
+        return (smallest_dimension - (border * 2)) / (max_radius);
     }
 
     private static double RESOLUTION = 0.01;
@@ -67,7 +70,5 @@ public class Spiral {
             g2d.drawLine(prev.x,prev.y,current.x,current.y);
             prev = current;
         }
-        //TODO add antialiasing
-        //g2d.addRenderingHints(RenderingHints.KEY_ANTIALIASING);
     }
 }
