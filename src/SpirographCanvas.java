@@ -3,7 +3,7 @@ import java.awt.image.BufferedImage;
 
 /**
  *
- * The Object to insert into a JForm or applet to display the spirographs
+ * The Object to insert into a JFrame or applet to display the Spirographs
  *
  * Created by Andy on 17/10/2014.
  *
